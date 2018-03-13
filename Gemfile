@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby "2.5.0"
+
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
@@ -50,6 +52,10 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'letter_opener', '~> 1.6'
 end
 
 gem 'faraday', '~> 0.14.0'
+gem 'dotenv-rails', '~> 2.2', '>= 2.2.1'
+gem 'mailgun_rails', '~> 0.9.0'
+gem 'sidekiq', '~> 5.1', '>= 5.1.1'

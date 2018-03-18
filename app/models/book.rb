@@ -4,7 +4,11 @@ class Book < ApplicationRecord
   has_many :users, through: :loans
   has_many :comments, as: :commentable, dependent: :destroy
 
-  scope :checkout_history, -> (book) { includes(:loans).where('loans.book_id = :id', id: book.id) }
-  scope :active_loans, -> { includes(:loans).where(loans: { status: 'active' }) }
+  scope :with_open_loans, -> { includes(:loans).where(loans: { status: 'active' }) }
+
   validates :title, presence: true
+
+  def toggle_borrow!
+     update borrowed: !borrowed
+  end
 end

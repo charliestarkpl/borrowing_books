@@ -18,6 +18,6 @@ class User < ApplicationRecord
   end
 
   def return_books
-    loans.each { |b| b.update(status: 1) }
+    loans.each { |b| b.update(status: 1, return_date: Date.today) }
   end
 end

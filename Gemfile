@@ -53,6 +53,8 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'letter_opener', '~> 1.6'
+  gem 'factory_bot_rails'
+  gem 'ffaker'
 end
 
 gem 'faraday', '~> 0.14.0'
@@ -62,3 +64,4 @@ gem 'sidekiq', '~> 5.1', '>= 5.1.1'
 gem 'devise'
 gem 'omniauth-google-oauth2'
 gem 'ancestry'
+gem 'awesome_print'

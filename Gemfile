@@ -43,6 +43,16 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'rspec-rails', '~> 3.7', '>= 3.7.2'
   gem 'webmock', '~> 3.3'
+  gem 'rspec-activemodel-mocks'
+  gem 'rspec-activejob'
+  gem 'rspec-json_expectations'
+  gem 'rspec_junit_formatter'
+  gem 'shoulda-matchers', '~> 3.1'
+  gem 'shoulda-whenever', '~> 0.0.2'
+  gem 'factory_bot'
+  gem 'factory_bot_rails'
+  gem 'database_cleaner'
+  gem 'ffaker'
 end
 
 group :development do
@@ -53,8 +63,6 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'letter_opener', '~> 1.6'
-  gem 'factory_bot_rails'
-  gem 'ffaker'
 end
 
 gem 'faraday', '~> 0.14.0'

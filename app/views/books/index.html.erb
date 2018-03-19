@@ -6,6 +6,7 @@
         <th>Description</th>
         <th>Author</th>
         <th>Borrowed?</th>
+        <th></th>
       </tr>
     </thead>
     <% @books.each do |book| %>
@@ -14,16 +15,15 @@
         <td><%= book.title %></td>
         <td><%= book.desc %></td>
         <td><%= book.author.full_name %></td>
-        <td><%= link_to 'Show', book, :class => "btn btn-primary", :style => "color: #aaa" %></td>
         <% if book.borrowed? %>
           <td><span class="label label-danger">Checked out</span></td>
           <% if book.borrowed_by?(current_user) %>
-            <td>return</td>
+            <td><%= link_to 'Return me!', return_book_path(book) %></td>
           <%end%>
         <% else %>
-         <td><span class="label label-success">Available</span></td>
-         <td>Borrow me!</td>
+          <td><span class="label label-success"><%= link_to 'Borrow me!', borrow_book_path(book) %></span></td>
         <%end%>
+        <td><%= link_to 'Show', book, :class => "btn btn-primary", :style => "color: #aaa" %></td>
       </tr>
     </tbody>
     <% end %>

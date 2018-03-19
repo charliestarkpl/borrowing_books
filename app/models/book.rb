@@ -14,7 +14,6 @@ class Book < ApplicationRecord
   end
 
   def borrowed_by?(user)
-    loan = Loan.book_by_user(self, user).where(status: 'active')&.take
-    loan.nil?
+    (Loan.book_by_user(self, user).where(status: 'active')&.take).present?
   end
 end

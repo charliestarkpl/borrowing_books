@@ -57,12 +57,30 @@ class BooksController < ApplicationController
     end
   end
 
-  def borrow(book_id, user_id)
-    service = LoanBook.new(book_id, user_id).call
+  def borrow
+    service = LoanBook.new(params[:id], current_user.id).call
+    respond_to do |format|
+      if service == true
+        format.html { redirect_to books_url, notice: 'You just borrowed a book!' }
+        format.json { render json: service, status: :ok }
+      else
+        format.html { redirect_to books_url, notice: service[:error] }
+        format.json { render json: service[:error], status: :unprocessable_entity }
+      end
+    end
   end
 
-  def return(book, user)
-    service = ReturnBook.new(book_id, user_id).call
+  def return
+    service = ReturnBook.new(params[:id], current_user.id).call
+    respond_to do |format|
+      if service == true
+        format.html { redirect_to books_url, notice: 'Thanks for returning a book.' }
+        format.json { render json: service, status: :ok }
+      else
+        format.html { redirect_to books_url, notice: service[:error] }
+        format.json { render json: service[:error], status: :unprocessable_entity }
+      end
+    end
   end
 
   private

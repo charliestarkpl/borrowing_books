@@ -4,7 +4,13 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
 
-  resources :books
+  resources :books do
+    member do
+      get 'borrow', to: 'books/borrow_book'
+      get 'return', to: 'books/return_book'
+    end
+  end
+
   resources :authors, only: :show
   resources :comments
 end

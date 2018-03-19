@@ -1,24 +1,51 @@
-# README
+# Borrow Book App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## About
 
-Things you may want to cover:
+App was created just to measure possible productivity achieved within 24 hours
 
-* Ruby version
+## Tech Stack
 
-* System dependencies
+* Ruby 2.5.0
+* PostgreSQL 9.2
+* Server: Heroku
 
-* Configuration
+## Installation
 
-* Database creation
+### Setting up the development environment
 
-* Database initialization
+1. Get the code. Clone this git repository and check out the latest release:
+```
+git clone git@github.com:charliestarkpl/borrowing_books.git
+cd borrowing_books
+git checkout latest
+```
 
-* How to run the test suite
+2. Setup database with example data:
+```
+rake db:create db:migrate db:seed
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+3. Copy environment variables:
+```
+cp .env-sample env
+```
 
-* Deployment instructions
+## Usage
+### Run application
+```
+$ rails s
+```
 
-* ...
+### What's worth looking into?
+
+Despite not styling a View layer, there is some code worth checking.
+
+What was done:
+- Heroku config
+- Sidekiq config
+- Authentication by Google Api
+- Basic Service Objects
+- Basic RSpec specs
+- Scopes
+- Polymorphic Associations

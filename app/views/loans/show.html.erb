@@ -1,0 +1,20 @@
+<p class="lead">Borrowing History for the book <%= @book.title %></p>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Checkout date</th>
+        <th>Return Date</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <% @loans.each do |loan| %>
+    <tbody>
+      <tr>
+        <td><%= loan.checkout_date %></td>
+        <td><%= loan.return_date %></td>
+        <td><%= loan.status %></td>
+      </tr>
+    </tbody>
+    <% end %>
+  </table>
+  <%= link_to 'Back', books_path, :class => "btn btn-warning", :style => "color: #aaa" %>

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       get 'borrow', to: 'books/borrow_book'
       get 'return', to: 'books/return_book'
     end
+    resource :loans
   end
 
   resources :authors, only: :show

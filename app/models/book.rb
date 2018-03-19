@@ -4,8 +4,7 @@ class Book < ApplicationRecord
   has_many :users, through: :loans
   has_many :comments, as: :commentable, dependent: :destroy
 
-  scope :with_open_loans, -> { includes(:loans).where(loans: { status: 'active' }) }
-  scope :with_authors, -> { includes(:author) }
+  scope :with_authors_and_loans, -> { includes(:author, :loans) }
 
   validates :title, presence: true
 

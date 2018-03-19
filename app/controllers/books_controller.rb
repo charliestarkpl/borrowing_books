@@ -23,7 +23,7 @@ class BooksController < ApplicationController
   end
 
   def index
-    @books = Book.with_authors
+    @books = Book.with_authors_and_loans
   end
 
   def edit

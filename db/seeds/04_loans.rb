@@ -4,8 +4,7 @@ book_ids = Book.all.pluck :id
 15.times do |n|
   params = {
     user_id: user_ids.sample,
-    book_id: book_ids.sample,
-    checkout_date: Date.today - 10
+    book_id: book_ids.sample
   }
-  Loan.where(params).first_or_create!
+  LoanBook.new(book_ids.sample, user_ids.sample).call
 end

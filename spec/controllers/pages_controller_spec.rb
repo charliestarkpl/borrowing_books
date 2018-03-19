@@ -8,12 +8,4 @@ RSpec.describe PagesController, type: :controller do
       expect(response).to have_http_status(:success)
     end
   end
-
-  describe "GET #secure" do
-    it "returns http success" do
-      get :secure
-      expect(response).to have_http_status(:success)
-    end
-  end
-
 end
